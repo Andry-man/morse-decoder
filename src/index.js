@@ -1,42 +1,3 @@
-const MORSE_TABLE = {
-    '.-':     'a',
-    '-...':   'b',
-    '-.-.':   'c',
-    '-..':    'd',
-    '.':      'e',
-    '..-.':   'f',
-    '--.':    'g',
-    '....':   'h',
-    '..':     'i',
-    '.---':   'j',
-    '-.-':    'k',
-    '.-..':   'l',
-    '--':     'm',
-    '-.':     'n',
-    '---':    'o',
-    '.--.':   'p',
-    '--.-':   'q',
-    '.-.':    'r',
-    '...':    's',
-    '-':      't',
-    '..-':    'u',
-    '...-':   'v',
-    '.--':    'w',
-    '-..-':   'x',
-    '-.--':   'y',
-    '--..':   'z',
-    '.----':  '1',
-    '..---':  '2',
-    '...--':  '3',
-    '....-':  '4',
-    '.....':  '5',
-    '-....':  '6',
-    '--...':  '7',
-    '---..':  '8',
-    '----.':  '9',
-    '-----':  '0',
-};
-
 function decode(expr) {
     let firstMatrix = [];
     let arr = [];
@@ -95,7 +56,7 @@ function decode(expr) {
     }
      } 
     
-     for (let index = 0; index < arr.length; index++) {
+     for (let index = 0; index < arr.length; index++) { // сортируем массив из 10 символов, по 2 символа
       var a = arr[index]
       var o = []
       for (var i = 0; i < a.length; i++) {
@@ -106,7 +67,7 @@ function decode(expr) {
       }
       morzeCod.push(o)
      }
-     for (var i = 0; i < morzeCod.length; i++) {
+     for (var i = 0; i < morzeCod.length; i++) { // если в массиве есть цифра 10 то пушим точку,если 11 то тире
        morzeCodtwo.push('"')
        let lMorzecod = morzeCod[i].length;
      for (let index = 0; index <lMorzecod; index++) {
@@ -123,7 +84,7 @@ function decode(expr) {
      }
     let sortCodtree = morzeCodtwo.join('').split('"')
     console.log(sortCodtree[11])
-    for (let index = 1; index < sortCodtree.length; index++) {
+    for (let index = 1; index < sortCodtree.length; index++) { //вставляем вместо морзе кода-буквы
       if (sortCodtree[index] == '.-') { //a
         morzeCodtree+=table['.-']
       }
@@ -237,7 +198,7 @@ function decode(expr) {
       }
     } 
   
-    return morzeCodtree;    
+    return morzeCodtree;   //расшифрованый код 
 }
 
 module.exports = {
